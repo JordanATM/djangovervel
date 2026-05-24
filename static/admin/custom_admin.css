@@ -67,6 +67,52 @@ div.breadcrumbs a {
     background: var(--admin-surface);
 }
 
+.admin-kpis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 0 0 18px;
+}
+
+.kpi-card {
+    background: #ffffff;
+    border: 1px solid #dbe4f0;
+    border-radius: 12px;
+    padding: 14px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+}
+
+.kpi-title {
+    display: block;
+    color: #0f172a;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.kpi-desc {
+    color: #475569;
+    font-size: 13px;
+}
+
+.app-items .model-item .addlink::before,
+.app-items .model-item .changelink::before,
+.app-auth .model-user .addlink::before,
+.app-auth .model-user .changelink::before {
+    margin-right: 6px;
+}
+
+.app-items .model-item .addlink::before,
+.app-items .model-item .changelink::before {
+    content: "▣";
+}
+
+.app-auth .model-user .addlink::before,
+.app-auth .model-user .changelink::before {
+    content: "◉";
+}
+
 .module h2,
 .module caption,
 .inline-group h2 {

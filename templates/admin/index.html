@@ -1,0 +1,20 @@
+{% extends "admin/index.html" %}
+
+{% block content %}
+<div class="admin-kpis">
+    <a class="kpi-card" href="{% url 'admin:items_item_changelist' %}">
+        <span class="kpi-title">Elementos</span>
+        <span class="kpi-desc">Gestiona el catalogo CRUD</span>
+    </a>
+    <a class="kpi-card" href="{% url 'admin:auth_user_changelist' %}">
+        <span class="kpi-title">Usuarios</span>
+        <span class="kpi-desc">Administra cuentas y permisos</span>
+    </a>
+    <a class="kpi-card" href="{% url 'admin:index' %}">
+        <span class="kpi-title">Estado</span>
+        <span class="kpi-desc">Panel operativo activo</span>
+    </a>
+</div>
+
+{{ block.super }}
+{% endblock %}
