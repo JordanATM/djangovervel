@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dev-insecure-secret-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
-default_hosts = ["127.0.0.1", "localhost", ".vercel.app"]
+default_hosts = ["127.0.0.1", "localhost", ".vercel.app", "djangovervel2.vercel.app"]
 vercel_url = os.getenv("VERCEL_URL")
 if vercel_url:
     default_hosts.append(vercel_url)
@@ -141,6 +141,7 @@ csrf_trusted_origins = [
 ]
 if vercel_url:
     csrf_trusted_origins.append(f"https://{vercel_url}")
+csrf_trusted_origins.append("https://djangovervel2.vercel.app")
 CSRF_TRUSTED_ORIGINS = csrf_trusted_origins
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
