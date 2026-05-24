@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Simple CRUD con Django</h1>
+<p>Gestiona una lista de elementos usando crear, editar y eliminar.</p>
+
+<div class="actions">
+    <a class="button" href="{% url 'item-create' %}">Nuevo elemento</a>
+</div>
+
+{% if items %}
+<ul class="items">
+    {% for item in items %}
+    <li>
+        <strong>{{ item.title }}</strong>
+        {% if item.description %}
+        <p>{{ item.description }}</p>
+        {% endif %}
+        <p class="meta">Actualizado: {{ item.updated_at|date:"d/m/Y H:i" }}</p>
+        <div class="row">
+            <a class="button secondary" href="{% url 'item-update' item.pk %}">Editar</a>
+            <a class="button danger" href="{% url 'item-delete' item.pk %}">Eliminar</a>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No hay elementos todavia.</p>
+{% endif %}
+{% endblock %}

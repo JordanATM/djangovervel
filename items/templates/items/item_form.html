@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if object %}
+<h1>Editar elemento</h1>
+{% else %}
+<h1>Nuevo elemento</h1>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="row">
+        <button type="submit">Guardar</button>
+        <a class="button secondary" href="{% url 'item-list' %}">Cancelar</a>
+    </div>
+</form>
+{% endblock %}

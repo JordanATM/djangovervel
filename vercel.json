@@ -1,0 +1,18 @@
+{
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb", "runtime": "python3.11" }
+    },
+    {
+      "src": "manage.py",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "staticfiles", "buildCommand": "python manage.py collectstatic --noinput" }
+    }
+  ],
+  "routes": [
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/(.*)", "dest": "api/index.py" }
+  ]
+}

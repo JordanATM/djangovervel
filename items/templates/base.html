@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django CRUD</title>
+    <style>
+        :root {
+            --bg: #f5f7fb;
+            --surface: #ffffff;
+            --text: #243048;
+            --muted: #5d6b89;
+            --accent: #0f766e;
+            --danger: #b91c1c;
+            --border: #d9e2f2;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top left, #e7f2ff 0%, var(--bg) 42%, #f1f5f9 100%);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: 0 12px 30px rgba(36, 48, 72, 0.08);
+        }
+        h1 { margin-top: 0; }
+        .actions { margin: 1rem 0; }
+        a.button, button {
+            background: var(--accent);
+            color: #fff;
+            border: 0;
+            border-radius: 8px;
+            padding: 0.55rem 0.9rem;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        .button.secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+        .button.danger, button.danger { background: var(--danger); }
+        ul.items { list-style: none; padding: 0; margin: 1rem 0 0; }
+        .items li {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .meta {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin: 0.25rem 0 0.7rem;
+        }
+        form p { margin: 0.9rem 0; }
+        input, textarea {
+            width: 100%;
+            margin-top: 0.3rem;
+            padding: 0.6rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+        .row { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+    </style>
+</head>
+<body>
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>
