@@ -1,0 +1,95 @@
+:root {
+    --admin-primary: #0f766e;
+    --admin-primary-dark: #115e59;
+    --admin-accent: #f59e0b;
+    --admin-surface: #f8fafc;
+    --admin-text: #1f2937;
+}
+
+body {
+    color: var(--admin-text);
+}
+
+#header {
+    background: linear-gradient(90deg, var(--admin-primary-dark), var(--admin-primary));
+    color: #ffffff;
+}
+
+#site-name a,
+#site-name a:visited {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.brand-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.brand-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.brand-subtitle {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.view-site-link {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 7px 10px;
+    text-decoration: none;
+}
+
+div.breadcrumbs {
+    background: #ecfeff;
+    color: #0f172a;
+}
+
+div.breadcrumbs a {
+    color: #0f766e;
+}
+
+#content {
+    background: var(--admin-surface);
+}
+
+.module h2,
+.module caption,
+.inline-group h2 {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.button,
+input[type=submit],
+input[type=button],
+.submit-row input,
+a.button {
+    background: var(--admin-primary);
+    border-radius: 8px;
+}
+
+.button.default,
+input[type=submit].default,
+.submit-row input.default {
+    background: var(--admin-accent);
+}
+
+#changelist-filter h2 {
+    background: #e2e8f0;
+    color: #0f172a;
+}
