@@ -1,10 +1,7 @@
 from django.urls import path
 
-from .views import ItemCreateView, ItemDeleteView, ItemListView, ItemUpdateView
+from .views import static_home
 
 urlpatterns = [
-    path("", ItemListView.as_view(), name="item-list"),
-    path("new/", ItemCreateView.as_view(), name="item-create"),
-    path("<int:pk>/edit/", ItemUpdateView.as_view(), name="item-update"),
-    path("<int:pk>/delete/", ItemDeleteView.as_view(), name="item-delete"),
+    path("", static_home, name="item-list"),
 ]
