@@ -26,7 +26,13 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dev-insecure-secret-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = [host for host in os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",") if host]
+default_hosts = ["127.0.0.1", "localhost", ".vercel.app"]
+vercel_url = os.getenv("VERCEL_URL")
+if vercel_url:
+    default_hosts.append(vercel_url)
+
+allowed_hosts_env = [host.strip() for host in os.getenv("ALLOWED_HOSTS", "").split(",") if host.strip()]
+ALLOWED_HOSTS = allowed_hosts_env or default_hosts
 
 
 # Application definition
@@ -122,9 +128,14 @@ STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-CSRF_TRUSTED_ORIGINS = [
-    origin for origin in os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",") if origin
+csrf_trusted_origins = [
+    origin.strip() for origin in os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",") if origin.strip()
 ]
+if vercel_url:
+    csrf_trusted_origins.append(f"https://{vercel_url}")
+CSRF_TRUSTED_ORIGINS = csrf_trusted_origins
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
